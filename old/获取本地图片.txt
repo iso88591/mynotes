@@ -1,0 +1,75 @@
+获取本地图片关键代码:
+
+/**
+     * 设置获取图片的属性
+     */
+    private static final String[] STORE_IMAGES = {
+            /**
+             * 图片ID。
+            */
+            MediaStore.Images.Media._ID,
+            /**
+             * 图片完整路径。
+            */
+            MediaStore.Images.Media.DATA,
+            /**
+             * 文件名称。
+            */
+            MediaStore.Images.Media.DISPLAY_NAME,
+            /**
+             * 被添加到库中的时间。
+            */
+            MediaStore.Images.Media.DATE_ADDED,
+            /**
+             * 目录ID。
+            */
+            MediaStore.Images.Media.BUCKET_ID,
+            /**
+             * 所在文件夹名称。
+            */
+            MediaStore.Images.Media.BUCKET_DISPLAY_NAME
+    };
+
+    public List<String> getPhotoAlbum(Context context) {
+        Cursor cursor = MediaStore.Images.Media.query(context.getContentResolver(), MediaStore.Images.Media.EXTERNAL_CONTENT_URI, STORE_IMAGES);
+
+        List<String> path=new ArrayList<>();
+
+        while (cursor.moveToNext()) {
+            int imageId = cursor.getInt(0);
+            String imagePath = cursor.getString(1);
+            String imageName = cursor.getString(2);
+            long addTime = cursor.getLong(3);
+
+            int bucketId = cursor.getInt(4);
+            String bucketName = cursor.getString(5);
+
+            path.add(imagePath);
+
+            Log.e("tag","imageId="+imageId+"" +
+                    "\n imagePath="+imagePath+"" +
+                    "\n imageName="+imageName+"" +
+                    "\n addTime="+addTime+"" +
+                    "\n bucketId="+bucketId+"" +
+                    "\n bucketName="+bucketName);
+
+        }
+        cursor.close();
+
+
+        return path;
+    }
+	
+	
+	
+	
+...................../´¯/) 
+....................,/¯../ 
+.................../..../ 
+............./´¯/'...'/´¯¯`·¸ 
+........../'/.../..../......./¨¯\ 
+........('(...´...´.... ¯~/'...') 
+.........\.................'...../ 
+..........''...\.......... _.·´ 
+............\..............( 
+..............\.............\	

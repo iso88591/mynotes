@@ -1,0 +1,14 @@
+rp账号 用于看原型图的
+zdfans.com
+gP5uuK2gH+iIVO3YFZwoKyxAdHpXRGNnZWN8Obntqv7++FF3pAz7dTu8B61ySxli
+
+
+final List<SeniorDetailBean> alwaysCityData = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            RegionBean commonAddress = Utils.getInstance().getCommonAddress(i, fragmentFlag);
+            RegionBean parent = RegionBean.byId(commonAddress.getPerentId());
+            SeniorDetailBean bean = new SeniorDetailBean(parent.getRegionName() + " " +
+                    commonAddress.getRegionName(), commonAddress.getRegionName());
+            alwaysCityData.add(bean);
+
+        }

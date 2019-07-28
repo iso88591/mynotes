@@ -1,0 +1,19 @@
+onCreate
+onStart
+onResume
+onPause -> onResume
+onStop -> onRestart -> onStart
+onDestroy
+
+onAttach
+onCreate
+onCreateView
+onActivityCreated
+onStart
+onResume
+
+onPause
+onStop
+onDestroyView -> onCreateView
+onDestroy
+onDetache

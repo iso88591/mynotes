@@ -1,0 +1,5 @@
+TypedArray typedArray = context.obtainStyledAttributes(attrs,R.styleable.ViewWithAttrs);
+        //使用typedarray获取对应的属性
+        int paintColor = typedArray.getColor(R.styleable.ViewWithAttrs_paint_color, Color.BLACK);
+        //最后的Color.BLACK是没获取到时的默认值
+        mPaint.setColor(paintColor);
