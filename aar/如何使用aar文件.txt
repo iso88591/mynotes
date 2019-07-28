@@ -1,0 +1,13 @@
+1. 在app的build.gradle中加入以下配置
+
+repositories {    
+    flatDir {        
+        dirs 'libs'   // aar目录
+      }
+}
+
+2. 将aar文件拷贝到app/libs目录下
+
+3. 在dependencies中加入aar引用
+
+compile(name: 'aar文件名称', ext: 'aar')
